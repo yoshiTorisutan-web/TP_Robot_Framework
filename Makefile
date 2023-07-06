@@ -1,9 +1,9 @@
 # Python version
-PYTHON= python3
+PYTHON= python
 HEADLESS= TRUE
 PROCESS = 8
 RESULTS_FOLDER= Results/
-SCENARIOS_FOLDER= Examples/
+SCENARIOS_FOLDER= TP/
 
 # Defines the default target that `make` will to try to make, or in the case of a phony target, execute the specified commands
 .PHONY: install chrome
@@ -59,7 +59,7 @@ else ifeq ($(OS_NAME),linux)
 	python3 -m pip install --upgrade pip
 	@bash install-chrome-linux.sh
 endif
-	pip3 install requests==2.30.0    robotframework==6.0.2    robotframework-browser==16.2.0    robotframework-debuglibrary==2.3.0    robotframework-jsonlibrary==0.5    robotframework-metrics==3.3.3    robotframework-pabot==2.15.0    robotframework-pythonlibcore==4.1.2    robotframework-requests==0.9.2    robotframework-seleniumlibrary==6.1.0    robotframework-seleniumtestability==2.1.0    selenium==4.9.1    urllib3==1.26.15 --upgrade
+	pip install requests==2.30.0    robotframework==6.0.2    robotframework-browser==16.2.0    robotframework-debuglibrary==2.3.0    robotframework-jsonlibrary==0.5    robotframework-metrics==3.3.3    robotframework-pabot==2.15.0    robotframework-pythonlibcore==4.1.2    robotframework-requests==0.9.2    robotframework-seleniumlibrary==6.1.0    robotframework-seleniumtestability==2.1.0    selenium==4.9.1    urllib3==1.26.15 --upgrade
 
 update-chromedriver:
 ifeq ($(OS_NAME),darwin)

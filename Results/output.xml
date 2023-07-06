@@ -1,27 +1,433 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.7.1 on win32)" generated="20200206 13:41:35.509" rpa="false">
-<suite id="s1" name="My First" source="C:\Users\JohnDoe\Documents\RobotFW\my_first.robot">
-<test id="s1-t1" name="My First Robot Test">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Hello Robot World!</arg>
-</arguments>
-<status status="PASS" starttime="20200206 13:41:35.589" endtime="20200206 13:41:35.590"></status>
+<robot generator="Robot 6.0.2 (Python 3.11.4 on win32)" generated="20230706 13:18:50.121" rpa="false" schemaversion="3">
+<suite id="s1" name="TP" source="D:\Robot Framework\BeginnersGuide\TP">
+<suite id="s1-s1" name="Tp2" source="D:\Robot Framework\BeginnersGuide\TP\tp2.robot">
+<kw name="Set All Values" type="SETUP">
+<kw name="Name" library="FakerLibrary">
+<var>${FakeName}</var>
+<doc>:example: 'John Doe'</doc>
+<msg timestamp="20230706 13:18:50.535" level="INFO">${FakeName} = Joseph Shepherd</msg>
+<status status="PASS" starttime="20230706 13:18:50.534" endtime="20230706 13:18:50.535"/>
 </kw>
-<status status="PASS" starttime="20200206 13:41:35.585" endtime="20200206 13:41:35.590" critical="yes"></status>
+<kw name="Last Name" library="FakerLibrary">
+<var>${FakeLastName}</var>
+<msg timestamp="20230706 13:18:50.535" level="INFO">${FakeLastName} = Rogers</msg>
+<status status="PASS" starttime="20230706 13:18:50.535" endtime="20230706 13:18:50.535"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${FIRSTNAME}</arg>
+<arg>${FakeName}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230706 13:18:50.536" level="INFO">${FIRSTNAME} = Joseph Shepherd</msg>
+<status status="PASS" starttime="20230706 13:18:50.535" endtime="20230706 13:18:50.536"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${LASTNAME}</arg>
+<arg>${FakeLastName}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230706 13:18:50.537" level="INFO">${LASTNAME} = Rogers</msg>
+<status status="PASS" starttime="20230706 13:18:50.536" endtime="20230706 13:18:50.537"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${USERNAME}</arg>
+<arg>${FakeName}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230706 13:18:50.537" level="INFO">${USERNAME} = Joseph Shepherd</msg>
+<status status="PASS" starttime="20230706 13:18:50.537" endtime="20230706 13:18:50.537"/>
+</kw>
+<status status="PASS" starttime="20230706 13:18:50.534" endtime="20230706 13:18:50.538"/>
+</kw>
+<test id="s1-s1-t1" name="User Management(Selenium) Robot Test" line="12">
+<kw name="Open Browser To OrangeHRM">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://opensource-demo.orangehrmlive.com/web/index.php/auth/login</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230706 13:18:50.539" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<msg timestamp="20230706 13:18:50.543" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230706 13:18:50.538" endtime="20230706 13:18:53.462"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230706 13:18:53.462" endtime="20230706 13:18:53.582"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:53.582" endtime="20230706 13:18:53.819"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name:password</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:53.819" endtime="20230706 13:18:53.834"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>class:orangehrm-login-button</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:53.834" endtime="20230706 13:18:53.852"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:username</arg>
+<arg>Admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:53.853" level="INFO">Typing text 'Admin' into text field 'name:username'.</msg>
+<status status="PASS" starttime="20230706 13:18:53.852" endtime="20230706 13:18:53.925"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>name:password</arg>
+<arg>admin123</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:53.925" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg timestamp="20230706 13:18:53.944" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230706 13:18:53.986" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230706 13:18:53.925" endtime="20230706 13:18:53.986"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>class:orangehrm-login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:53.986" level="INFO">Clicking button 'class:orangehrm-login-button'.</msg>
+<status status="PASS" starttime="20230706 13:18:53.986" endtime="20230706 13:18:54.020"/>
+</kw>
+<status status="PASS" starttime="20230706 13:18:50.538" endtime="20230706 13:18:54.020"/>
+</kw>
+<kw name="Click PIM">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[@href="/web/index.php/pim/viewPimModule"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:54.020" endtime="20230706 13:18:55.103"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[@href="/web/index.php/pim/viewPimModule"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:55.104" level="INFO">Clicking link 'xpath=//a[@href="/web/index.php/pim/viewPimModule"]'.</msg>
+<status status="PASS" starttime="20230706 13:18:55.103" endtime="20230706 13:18:56.557"/>
+</kw>
+<status status="PASS" starttime="20230706 13:18:54.020" endtime="20230706 13:18:56.557"/>
+</kw>
+<kw name="Click Add">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="orangehrm-header-container"]/button</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:56.557" endtime="20230706 13:18:57.002"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//div[@class="orangehrm-header-container"]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:57.002" level="INFO">Clicking button 'xpath=//div[@class="orangehrm-header-container"]/button'.</msg>
+<status status="PASS" starttime="20230706 13:18:57.002" endtime="20230706 13:18:57.815"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>name:firstName</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:57.815" endtime="20230706 13:18:58.051"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:firstName</arg>
+<arg>${FIRSTNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.052" level="INFO">Typing text 'Joseph Shepherd' into text field 'name:firstName'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.051" endtime="20230706 13:18:58.111"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name:lastName</arg>
+<arg>${LASTNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.112" level="INFO">Typing text 'Rogers' into text field 'name:lastName'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.111" endtime="20230706 13:18:58.163"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//div[@class="oxd-switch-wrapper"]/label/span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.164" level="INFO">Clicking element 'xpath=//div[@class="oxd-switch-wrapper"]/label/span'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.163" endtime="20230706 13:18:58.578"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Username')]/../../div/input</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:58.578" endtime="20230706 13:18:58.601"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Username')]/../../div/input</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.601" level="INFO">Typing text 'Joseph Shepherd' into text field 'xpath=//label[contains(text(), 'Username')]/../../div/input'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.601" endtime="20230706 13:18:58.681"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Password')]/../../div/input</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.682" level="INFO">Typing text 'ATVaPbHIGJaJGULN1234' into text field 'xpath=//label[contains(text(), 'Password')]/../../div/input'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.681" endtime="20230706 13:18:58.751"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Confirm Password')]/../../div/input</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.751" level="INFO">Typing text 'ATVaPbHIGJaJGULN1234' into text field 'xpath=//label[contains(text(), 'Confirm Password')]/../../div/input'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.751" endtime="20230706 13:18:58.822"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:58.822" endtime="20230706 13:18:58.836"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:18:58.836" level="INFO">Clicking button 'xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'.</msg>
+<status status="PASS" starttime="20230706 13:18:58.836" endtime="20230706 13:18:58.869"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="orangehrm-edit-employee-content"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:18:58.869" endtime="20230706 13:19:03.325"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(), 'Employee List')]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:03.325" endtime="20230706 13:19:03.345"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(), 'Employee List')]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:03.345" level="INFO">Clicking link 'xpath=//a[contains(text(), 'Employee List')]'.</msg>
+<status status="PASS" starttime="20230706 13:19:03.345" endtime="20230706 13:19:03.761"/>
+</kw>
+<status status="PASS" starttime="20230706 13:18:56.557" endtime="20230706 13:19:03.761"/>
+</kw>
+<kw name="Search User">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:03.762" endtime="20230706 13:19:04.439"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input</arg>
+<arg>${FIRSTNAME} ${LASTNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:04.440" level="INFO">Typing text 'Joseph Shepherd Rogers' into text field 'xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input'.</msg>
+<status status="PASS" starttime="20230706 13:19:04.439" endtime="20230706 13:19:04.499"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230706 13:19:05.499" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230706 13:19:04.499" endtime="20230706 13:19:05.499"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:05.500" level="INFO">Clicking button 'xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'.</msg>
+<status status="PASS" starttime="20230706 13:19:05.499" endtime="20230706 13:19:05.557"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:03.762" endtime="20230706 13:19:05.557"/>
+</kw>
+<kw name="Modify User">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="oxd-table-card"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:05.558" endtime="20230706 13:19:05.793"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//i[@class="oxd-icon bi-pencil-fill"]/..</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:05.793" level="INFO">Clicking element 'xpath=//i[@class="oxd-icon bi-pencil-fill"]/..'.</msg>
+<status status="PASS" starttime="20230706 13:19:05.793" endtime="20230706 13:19:06.097"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="orangehrm-edit-employee-content"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:06.097" endtime="20230706 13:19:06.326"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Other Id')]/../../div/input</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:06.326" endtime="20230706 13:19:06.344"/>
+</kw>
+<kw name="Random Number" library="FakerLibrary">
+<var>${RANDOM_NUMBER}</var>
+<arg>4</arg>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20230706 13:19:06.344" level="INFO">${RANDOM_NUMBER} = 3250</msg>
+<status status="PASS" starttime="20230706 13:19:06.344" endtime="20230706 13:19:06.344"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230706 13:19:07.346" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230706 13:19:06.344" endtime="20230706 13:19:07.346"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Other Id')]/../../div/input</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:07.347" level="INFO">Clicking element 'xpath=//label[contains(text(), 'Other Id')]/../../div/input'.</msg>
+<status status="PASS" starttime="20230706 13:19:07.346" endtime="20230706 13:19:07.391"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Other Id')]/../../div/input</arg>
+<arg>${RANDOM_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:07.392" level="INFO">Typing text '3250' into text field 'xpath=//label[contains(text(), 'Other Id')]/../../div/input'.</msg>
+<status status="PASS" starttime="20230706 13:19:07.391" endtime="20230706 13:19:07.431"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Other Id')]/../../div/input</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230706 13:19:07.431" level="INFO">Sending key(s) ('RETURN',) to xpath=//label[contains(text(), 'Other Id')]/../../div/input element.</msg>
+<msg timestamp="20230706 13:19:07.713" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230706 13:19:07.713" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230706 13:19:07.431" endtime="20230706 13:19:07.731"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230706 13:19:08.732" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230706 13:19:07.731" endtime="20230706 13:19:08.732"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Other Id')]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:08.732" endtime="20230706 13:19:08.755"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[contains(text(), 'Employee List')]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:08.755" level="INFO">Clicking link 'xpath=//a[contains(text(), 'Employee List')]'.</msg>
+<status status="PASS" starttime="20230706 13:19:08.755" endtime="20230706 13:19:09.041"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:05.558" endtime="20230706 13:19:09.042"/>
+</kw>
+<kw name="Search User">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:09.045" endtime="20230706 13:19:09.314"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input</arg>
+<arg>${FIRSTNAME} ${LASTNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:09.314" level="INFO">Typing text 'Joseph Shepherd Rogers' into text field 'xpath=//label[contains(text(), 'Employee Name')]/../../div/div/div/input'.</msg>
+<status status="PASS" starttime="20230706 13:19:09.314" endtime="20230706 13:19:09.386"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230706 13:19:10.386" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230706 13:19:09.386" endtime="20230706 13:19:10.386"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:10.387" level="INFO">Clicking button 'xpath=//button[@class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'.</msg>
+<status status="PASS" starttime="20230706 13:19:10.386" endtime="20230706 13:19:10.438"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:09.044" endtime="20230706 13:19:10.438"/>
+</kw>
+<kw name="Delete User">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="oxd-table-card"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:10.439" endtime="20230706 13:19:10.875"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//i[@class="oxd-icon bi-trash"]/..</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:10.876" level="INFO">Clicking element 'xpath=//i[@class="oxd-icon bi-trash"]/..'.</msg>
+<status status="PASS" starttime="20230706 13:19:10.875" endtime="20230706 13:19:10.905"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:10.905" endtime="20230706 13:19:10.924"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=//button[@class="oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:10.925" level="INFO">Clicking button 'xpath=//button[@class="oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin"]'.</msg>
+<status status="PASS" starttime="20230706 13:19:10.924" endtime="20230706 13:19:11.018"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230706 13:19:13.019" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230706 13:19:11.018" endtime="20230706 13:19:13.019"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:10.439" endtime="20230706 13:19:13.019"/>
+</kw>
+<kw name="Disconnect">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class="oxd-userdropdown-tab"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:13.019" endtime="20230706 13:19:13.044"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//span[@class="oxd-userdropdown-tab"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:13.044" level="INFO">Clicking element 'xpath=//span[@class="oxd-userdropdown-tab"]'.</msg>
+<status status="PASS" starttime="20230706 13:19:13.044" endtime="20230706 13:19:13.075"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[@href="/web/index.php/auth/logout"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:13.075" endtime="20230706 13:19:13.088"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath=//a[@href="/web/index.php/auth/logout"]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230706 13:19:13.088" level="INFO">Clicking link 'xpath=//a[@href="/web/index.php/auth/logout"]'.</msg>
+<status status="PASS" starttime="20230706 13:19:13.088" endtime="20230706 13:19:13.493"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:13.019" endtime="20230706 13:19:13.493"/>
+</kw>
+<kw name="Check Connect Page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@class="orangehrm-login-slot"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230706 13:19:13.493" endtime="20230706 13:19:13.733"/>
+</kw>
+<status status="PASS" starttime="20230706 13:19:13.493" endtime="20230706 13:19:13.733"/>
+</kw>
+<tag>tp2</tag>
+<status status="PASS" starttime="20230706 13:18:50.538" endtime="20230706 13:19:13.734"/>
 </test>
-<status status="PASS" starttime="20200206 13:41:35.512" endtime="20200206 13:41:35.592"></status>
+<status status="PASS" starttime="20230706 13:18:50.139" endtime="20230706 13:19:13.736"/>
+</suite>
+<status status="PASS" starttime="20230706 13:18:50.122" endtime="20230706 13:19:13.738"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">tp2</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="My First">My First</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TP">TP</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tp2">TP.Tp2</stat>
 </suite>
 </statistics>
 <errors>
